@@ -2,7 +2,6 @@
 
 **MediMate** is a smart and beautiful web app designed to help users schedule, track, and manage their daily medicines easily. It features an intuitive UI, interactive dashboard, and personalized suggestions — making it your digital healthcare buddy.
 
-![MediMate Banner](https://via.placeholder.com/1000x300?text=MediMate+-+Your+Personal+Medicine+Companion)
 
 ---
 
