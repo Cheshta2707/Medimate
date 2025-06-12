@@ -1,50 +1,72 @@
 # 💊 MediMate – Your Personal Medicine Companion
 
-**MediMate** is a smart and beautiful web app designed to help users schedule, track, and manage their daily medicines easily. It features an intuitive UI, interactive dashboard, and personalized suggestions — making it your digital healthcare buddy.
+**MediMate** is a modern, responsive medicine management platform that empowers users to schedule, track, and stay consistent with their daily medications. From intelligent reminders to AI-based suggestions, MediMate is designed to bring clarity, simplicity, and care to your healthcare routine.
 
 
 ---
 
-## 🧠 About the Project
+## 🧠 Why MediMate?
 
-This project was built using only **HTML, CSS, and JavaScript**, with no external frameworks — showing how powerful a pure frontend stack can be.
+Managing medicines can get messy. Missed doses, confusing timings, no reminders — MediMate solves all that.
 
-MediMate allows you to:
-- Add medicines with name, type, dosage, duration, and custom times.
-- View upcoming and completed doses.
-- Search for medicines and get usage, dosage, side effects, and precautions.
-- Get AI-like smart suggestions based on age group and health condition.
-- Enjoy a fully responsive, modern UI with toast notifications and loading overlays.
+> 📅 **Smart scheduling**  
+> 🔔 **Timely reminders**  
+> 📚 **Medicine info at your fingertips**  
+> 🤖 **AI-powered suggestions**  
+> 🔐 **Secure & responsive user login**
 
----
-
-## 🌟 Features
-
-✅ **Dashboard** with real-time medicine statistics  
-✅ **Add, View, Edit & Delete** medicine schedules  
-✅ **Medicine Library** with quick search  
-✅ **Smart Suggestions** based on user filters  
-✅ **Notification toggle & Floating Action Button**  
-✅ **Animated UI** with pills and waves for aesthetics  
-✅ **Fully responsive** on desktop and mobile
+All wrapped in a clean, animated, modern UI.
 
 ---
-
-## 🛠️ Tech Stack
-
-| Tech      | Usage                        |
-|-----------|------------------------------|
-| HTML5     | Markup structure             |
-| CSS3      | Responsive and modern styling |
-| JavaScript | Dynamic interactions and logic |
-| Font Awesome | Icons                     |
-| Google Fonts | Typography                |
-
----
-
 
 ## 📁 Folder Structure
 
-```bash
-📦 mediMate/
-└── 📄 medicine.html  # Main HTML file with embedded CSS + JS
+MediMate/
+
+├── landing.html # Hero homepage
+
+├── medicine.html # Full dashboard for scheduling
+
+├── new_user.html # Signup / login page
+
+├── script.js # Global dashboard JS
+
+├── style.css # Global styles
+
+├── styles/
+
+│ ├── landing_style.css # Landing page styles
+  
+│ └── new_user_styles.css # New user form styles
+
+├── scripts/
+
+│ ├── landing_style.js # Effects & animations
+
+│ └── new_user_scripts.js # Form logic, toggles, validation
+
+
+
+---
+
+## 🔍 Features
+
+✨ **Interactive Landing Page** with floating elements & scroll animations  
+📅 **Medicine Scheduler** – Add, track, and customize timings  
+🔐 **User Login Modal** – With password visibility toggle  
+📚 **Smart Library Search** – Quickly get info and add to your schedule  
+🧠 **AI Suggestions** – Based on age group & health condition  
+📱 **100% Responsive** – Mobile & tablet friendly  
+⚙️ **Modular Codebase** – Clean folder structure (JS/CSS separated)
+
+---
+
+## 🛠️ Built With
+
+- **HTML5**
+- **CSS3** (Flexbox, Grid, Media Queries)
+- **Vanilla JavaScript**
+- **Font Awesome** (Icons)
+- **Google Fonts** (Inter, Plus Jakarta Sans)
+
+---
