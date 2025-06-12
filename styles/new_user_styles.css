@@ -1,0 +1,748 @@
+/* === CSS Reset and Base Styles === */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    /* Colors */
+    --primary-blue: #2563eb; /* Main brand color */
+    --primary-blue-dark: #1d4ed8;
+    --primary-blue-light: #60a5fa;
+    --secondary-teal: #0d9488;
+    --secondary-teal-dark: #0f766e;
+    --accent-pink: #ec4899;
+    --accent-purple: #8b5cf6;
+
+    --white: #ffffff;
+    --gray-50: #f8fafc;  /* Lightest gray for backgrounds */
+    --gray-100: #f1f5f9; /* Light gray for borders, dividers */
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #9ca3af; /* Muted text */
+    --gray-500: #6b7280; /* Regular text */
+    --gray-600: #4b5563; /* Medium-dark text */
+    --gray-700: #374151; /* Dark text */
+    --gray-800: #1f2937; /* Very dark text */
+    --gray-900: #111827; /* Almost black */
+    --black: #000000;
+
+    --success-green: #10b981;
+    --success-green-light: #d1fae5;
+    --error-red: #ef4444;
+    --error-red-light: #fee2e2;
+    --warning-yellow: #f59e0b;
+    --warning-yellow-light: #fef3c7;
+    --info-blue: #3b82f6;
+    --info-blue-light: #dbeafe;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+    --gradient-accent: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+    --gradient-background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    --gradient-header-bg: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(29, 78, 216, 0.9) 100%);
+    --gradient-button: linear-gradient(135deg, var(--primary-blue-light), var(--primary-blue));
+    --gradient-button-hover: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+
+    /* Typography */
+    --font-primary: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+
+    /* Spacing */
+    --space-xxs: 0.25rem; /* 4px */
+    --space-xs: 0.5rem;   /* 8px */
+    --space-sm: 0.75rem;  /* 12px */
+    --space-md: 1rem;     /* 16px */
+    --space-lg: 1.5rem;   /* 24px */
+    --space-xl: 2rem;     /* 32px */
+    --space-2xl: 2.5rem;  /* 40px */
+    --space-3xl: 3rem;    /* 48px */
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    --shadow-error: 0 0 0 3px rgba(239, 68, 68, 0.4);
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: all 0.15s ease-in-out;
+    --transition-medium: all 0.3s ease-in-out;
+    --transition-slow: all 0.5s ease-in-out;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--gradient-background);
+    color: var(--gray-700);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll from floating elements */
+    position: relative;
+    min-height: 100vh;
+}
+
+/* === Background Elements & Animations === */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--primary-blue-light) 0.5px, transparent 0.5px);
+    background-size: 15px 15px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.floating-elements {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-pill {
+    position: absolute;
+    font-size: 2rem; /* Default size */
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+    user-select: none;
+}
+
+.pill-1 { top: 10%; left: 15%; animation-duration: 12s; font-size: 2.5rem; }
+.pill-2 { top: 20%; left: 80%; animation-duration: 18s; font-size: 1.8rem; }
+.pill-3 { top: 70%; left: 10%; animation-duration: 14s; font-size: 3rem; color: var(--accent-pink); }
+.pill-4 { top: 80%; left: 75%; animation-duration: 16s; font-size: 2.2rem; }
+.pill-5 { top: 40%; left: 50%; animation-duration: 20s; font-size: 1.5rem; color: var(--secondary-teal); }
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    25% { transform: translateY(-20px) translateX(15px) rotate(15deg); }
+    50% { transform: translateY(10px) translateX(-10px) rotate(-10deg); }
+    75% { transform: translateY(-15px) translateX(20px) rotate(5deg); }
+}
+
+/* === Keyframes for Animations === */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toastOut {
+    to { opacity: 0; transform: translateY(20px) scale(0.95); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes logoClickPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* === Registration Container and Card - MODIFIED FOR TWO-COLUMN === */
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--space-md); /* Padding for smaller screens or if card overflows */
+}
+
+.registration-card {
+    background: var(--white); /* Fallback, sections will have their own backgrounds */
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    width: 100%; /* Take full width of container, constrained by max-width */
+    max-width: 860px; /* Wider card for two-column layout */
+    display: flex;
+    flex-direction: row; /* Key change for two-column layout */
+    animation: slideIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    position: relative; /* For potential absolute positioned children */
+    padding: 0; /* Card itself has no padding, sections will handle it */
+    max-height: 90vh; /* Prevent card from being too tall */
+}
+
+/* New Styles for Card Sections */
+.card-info-section {
+    flex-basis: 35%;
+    padding: var(--space-2xl) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: var(--gray-50); /* Slightly different background for the info panel */
+    /* border-right: 1px solid var(--gray-200); Optional separator */
+}
+
+.card-form-section {
+    flex-basis: 65%;
+    padding: var(--space-xl) var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    background: var(--white); /* Main form area is white */
+    overflow-y: auto; /* Make form section scrollable if content exceeds height */
+    max-width: 1100px;
+    width: 95%;
+    max-height: 70vh; /* Corresponds to registration-card max-height */
+}
+
+/* === Logo Section - MODIFIED === */
+.logo-section {
+    display: flex;
+    align-items: center; /* Vertically center icon and text */
+    /* justify-content: flex-start; /* Align to the left (default for flex items) */
+    gap: var(--space-md); /* Space between icon and text */
+    margin-bottom: var(--space-lg); /* Space below logo */
+    cursor: pointer;
+    user-select: none;
+    background: none; /* Removed original gradient */
+    padding: 0; /* Rely on .card-info-section padding */
+    width: 100%; /* Take full width of its parent */
+}
+
+.logo-section .logo-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(37, 99, 235, 0.1); /* Lighter background for icon */
+    color: var(--primary-blue); /* Icon color */
+    font-size: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-medium);
+}
+
+.logo-section .logo-text {
+    font-size: 2rem; /* Larger logo text */
+    font-weight: 800;
+    color: var(--gray-800); /* Darker text for light background */
+    letter-spacing: -0.5px;
+}
+
+.logo-section .logo-description {
+   display: none; /* Hide original description in this layout */
+}
+
+.logo-section:hover .logo-icon {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.logo-section.clicked .logo-icon {
+    animation: logoClickPulse 0.3s ease-in-out;
+}
+
+
+/* === Registration Header & Progress Bar - MODIFIED === */
+.registration-header {
+    text-align: left; /* Align header to the left */
+    margin-bottom: var(--space-lg);
+    background: none; /* Removed original gradient */
+    padding: 0; /* Padding handled by .card-form-section */
+}
+
+.registration-header h1 {
+    font-size: 1.75rem; /* Slightly smaller for this layout */
+    font-weight: 700;
+    color: var(--gray-900); /* Dark title */
+    margin-bottom: var(--space-xs);
+}
+
+.registration-subtitle {
+    font-size: 0.9rem; /* Slightly smaller */
+    color: var(--gray-600); /* Legible subtitle */
+    margin-bottom: var(--space-lg);
+    opacity: 1; /* Ensure full opacity */
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to left */
+    width: 100%;
+    padding-bottom: var(--space-lg);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--gray-200); /* Lighter track */
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--space-xs);
+}
+
+.progress-fill {
+    width: 0%; /* Initial width */
+    height: 100%;
+    background: var(--primary-blue); /* Primary color fill */
+    border-radius: var(--radius-full);
+    transition: width 0.5s ease-in-out;
+}
+
+.step-indicator {
+    font-size: 0.8rem;
+    color: var(--gray-600); /* Legible step text */
+    font-weight: 500;
+}
+
+/* === Form Elements === */
+.form-container {
+    flex-grow: 1; /* Allow form container to take available vertical space */
+    overflow-y: auto; /* Scroll for form content if it's too long */
+    padding: 0; /* Padding is handled by .card-form-section or form-groups */
+    /* Custom scrollbar for form container */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-blue-light) var(--gray-100);
+}
+.form-container::-webkit-scrollbar {
+    width: 8px;
+}
+.form-container::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: var(--radius-full);
+}
+.form-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-blue-light);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--gray-100);
+}
+
+.registration-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure form takes full height of container */
+}
+
+.form-step {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    flex-grow: 1; /* Allow active step to take available space */
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+    position: relative; /* For error messages or icons */
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: var(--space-xs);
+}
+.form-group label i {
+    color: var(--primary-blue);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-family: var(--font-primary);
+    color: var(--gray-800);
+    background-color: var(--white);
+    transition: var(--transition-fast);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--gray-400);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-focus);
+    background-color: var(--white); /* Ensure background remains white on focus */
+}
+
+input.error,
+select.error,
+textarea.error {
+    border-color: var(--error-red);
+    box-shadow: var(--shadow-error);
+}
+input.error:focus,
+select.error:focus,
+textarea.error:focus {
+    border-color: var(--error-red); /* Keep error border color on focus */
+    box-shadow: var(--shadow-error); /* Keep error shadow on focus */
+}
+
+
+.password-input {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: var(--space-md);
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    padding: var(--space-xs);
+}
+.password-toggle:hover {
+    color: var(--primary-blue);
+}
+
+.password-requirements {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    margin-top: var(--space-xs);
+    padding-left: var(--space-xs);
+}
+.password-requirements .requirement {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-xxs);
+    transition: color 0.2s;
+}
+.password-requirements .requirement i {
+    margin-right: var(--space-xs);
+    font-size: 0.7rem;
+    width: 1em; /* Ensure consistent alignment */
+}
+.password-requirements .requirement.valid {
+    color: var(--success-green);
+}
+.password-requirements .requirement.invalid {
+    color: var(--error-red);
+}
+
+.checkbox-group {
+    margin-bottom: var(--space-lg);
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    user-select: none;
+}
+.checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkbox-text {
+    padding-left: calc(1.25em + var(--space-xs)); /* Space for custom checkmark */
+}
+.checkbox-container input[type="checkbox"] + .checkbox-text::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.25em;
+    width: 1.25em;
+    border: 2px solid var(--gray-400);
+    border-radius: var(--radius-sm);
+    background-color: var(--white);
+    transition: var(--transition-fast);
+}
+.checkbox-container input[type="checkbox"]:checked + .checkbox-text::before {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+.checkbox-container input[type="checkbox"]:focus + .checkbox-text::before {
+    box-shadow: var(--shadow-focus);
+}
+.checkbox-container input[type="checkbox"] + .checkbox-text::after { /* Checkmark */
+    content: '';
+    position: absolute;
+    left: 0.4em;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg) scale(0);
+    height: 0.8em;
+    width: 0.4em;
+    border-bottom: 2px solid var(--white);
+    border-right: 2px solid var(--white);
+    transition: transform 0.15s ease-in-out;
+}
+.checkbox-container input[type="checkbox"]:checked + .checkbox-text::after {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+}
+.checkbox-container a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+.checkbox-container a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    font-size: 0.75rem;
+    color: var(--error-red);
+    margin-top: var(--space-xs);
+    padding-left: var(--space-xs);
+    min-height: 1em; /* Prevent layout shifts */
+}
+
+/* === Buttons and Navigation - MODIFIED === */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-sm);
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+.btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: var(--gradient-button);
+    color: var(--white);
+}
+.btn-primary:hover:not(:disabled) {
+    background: var(--gradient-button-hover);
+}
+
+/* #prevBtn specific styles (link-like) */
+#prevBtn {
+    background: none;
+    color: var(--primary-blue);
+    box-shadow: none;
+    border: none;
+    padding-left: 0;
+    padding-right: var(--space-sm);
+    font-weight: 500;
+    order: 1; /* Ensure it's on the left */
+}
+#prevBtn:hover:not(:disabled) {
+    background: none;
+    color: var(--primary-blue-dark);
+    text-decoration: underline;
+    transform: none;
+    box-shadow: none;
+}
+#prevBtn i {
+    margin-right: var(--space-xs);
+}
+
+/* #nextBtn, #submitBtn default primary button styles are applied */
+#nextBtn, #submitBtn {
+    order: 2; /* Ensure they are on the right */
+    min-width: 120px; /* Ensure a decent width for primary actions */
+}
+
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between; /* Places Prev on left, Next/Submit on right */
+    align-items: center;
+    padding-top: var(--space-xl); /* Increased spacing above buttons */
+    margin-top: auto; /* Pushes navigation to bottom of form-step if content is short */
+    border-top: none; /* No border needed for Google-like layout */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+#prevBtn {
+    visibility: hidden; /* Hidden by default, shown by JS */
+}
+#prevBtn.visible {
+    visibility: visible;
+}
+#submitBtn {
+    display: none; /* Hidden by default, shown on last step by JS */
+}
+
+
+/* === Login Link - MODIFIED === */
+.login-link {
+    text-align: left; /* Align to the left */
+    padding-top: var(--space-xl); /* Space above */
+    margin-top: var(--space-lg);
+    border-top: 1px solid var(--gray-200); /* Light separator */
+    background: none; /* Ensure no separate background */
+    flex-shrink: 0; /* Prevent shrinking */
+    font-size: 0.875rem; /* Consistent with Google's secondary text */
+}
+.login-link p {
+    color: var(--gray-600);
+}
+.login-link a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 880px) { /* Breakpoint for stacking */
+    .registration-card {
+        flex-direction: column; /* Stack sections vertically */
+        max-width: 500px;       /* Revert to a narrower width for single column */
+        max-height: 90vh;       /* Ensure it doesn't exceed viewport height */
+        overflow-y: auto;       /* Allow card itself to scroll if content overflows on mobile */
+    }
+
+    .card-info-section {
+        flex-basis: auto; /* Each section takes full width */
+        width: 100%;
+        padding: var(--space-lg) var(--space-xl); /* Consistent padding for stacked view */
+        align-items: center; /* Center logo when stacked */
+        text-align: center;
+        border-right: none; /* Remove border if it was added */
+        /* background: transparent; /* Or keep the light bg */
+    }
+    .logo-section {
+        justify-content: center; /* Center logo elements */
+        padding-bottom: var(--space-md);
+    }
+
+    .card-form-section {
+        flex-basis: auto;
+        width: 100%;
+        padding: var(--space-lg) var(--space-xl); /* Consistent padding */
+        overflow-y: visible; /* Let card handle overall scroll */
+    }
+
+    .registration-header {
+        text-align: center; /* Center header text when stacked */
+    }
+    /* .progress-container might need centering if not already handled */
+    /* .form-navigation can remain space-between or you can adjust for mobile */
+}
+
+@media (max-width: 480px) {
+    .card-form-section, .card-info-section {
+        padding: var(--space-md); /* Reduce padding on very small screens */
+    }
+    .registration-header h1 {
+        font-size: 1.5rem;
+    }
+    .registration-header .registration-subtitle {
+        font-size: 0.85rem;
+    }
+    .form-navigation {
+        flex-direction: column-reverse; /* Stack buttons, Next/Submit on top */
+        gap: var(--space-sm);
+        align-items: stretch; /* Make buttons full width */
+    }
+    #prevBtn, #nextBtn, #submitBtn {
+        width: 100%;
+        text-align: center;
+    }
+    #prevBtn {
+        padding: var(--space-sm); /* Give it button-like padding when stacked */
+        background-color: var(--gray-100, #f3f4f6); /* Slight background to differentiate */
+    }
+    #prevBtn:hover {
+        background-color: var(--gray-200, #e5e7eb);
+    }
+}
