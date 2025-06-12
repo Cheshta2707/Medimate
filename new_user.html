@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - MediMate</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Ensure this path is correct for your CSS file -->
+    <link rel="stylesheet" href="styles/new_user_styles.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="floating-elements">
+            <div class="floating-pill pill-1">💊</div>
+            <div class="floating-pill pill-2">🏥</div>
+            <div class="floating-pill pill-3">❤️</div>
+            <div class="floating-pill pill-4">⚕️</div>
+            <div class="floating-pill pill-5">🌿</div>
+        </div>
+        <div class="background-pattern"></div>
+    </div>
+
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()" title="Go Back">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Registration Container -->
+    <div class="registration-container">
+        <div class="registration-card">
+            <!-- New Left Section for Branding/Info -->
+            <div class="card-info-section">
+                <div class="logo-section" onclick="logoClicked()" title="Click for surprise!">
+                    <div class="logo-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <span class="logo-text">MediMate</span>
+                    <!-- Optional: Add static text here if desired based on previous CSS suggestion -->
+                    <!--
+                    <div class="logo-content">
+                         <p class="logo-description">Your trusted health companion</p>
+                    </div>
+                    -->
+                </div>
+                <!-- You can add more static content here, like:
+                <h2 class="static-card-title">Create your MediMate Account</h2>
+                <p class="static-card-subtitle">Join us to manage your health journey effectively.</p>
+                -->
+            </div>
+
+            <!-- New Right Section for Form and Actions -->
+            <div class="card-form-section">
+                <!-- Header -->
+                <div class="registration-header">
+                    <h1 id="stepTitle">Personal Information</h1>
+                    <p class="registration-subtitle" id="stepSubtitle">Enter your basic details to get started</p>
+                    
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="step-indicator">
+                            <span id="stepText">Step 1 of 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Form -->
+                <div class="form-container">
+                    <form class="registration-form" id="registrationForm">
+                        <!-- Step 1: First name, last name, email id, phone number -->
+                        <div class="form-step active" id="step1">
+                            <div class="form-group">
+                                <label for="firstName">
+                                    <i class="fas fa-user"></i>
+                                    First Name
+                                </label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                                <div class="error-message" id="firstNameError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">
+                                    <i class="fas fa-user"></i>
+                                    Last Name
+                                </label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                                <div class="error-message" id="lastNameError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                                <div class="error-message" id="emailError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i>
+                                    Phone Number
+                                </label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Height, weight, DOB and gender -->
+                        <div class="form-step" id="step2">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="height">
+                                        <i class="fas fa-ruler-vertical"></i>
+                                        Height (cm)
+                                    </label>
+                                    <input type="number" id="height" name="height" placeholder="Height in cm" min="50" max="300">
+                                    <div class="error-message" id="heightError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="weight">
+                                        <i class="fas fa-weight"></i>
+                                        Weight (kg)
+                                    </label>
+                                    <input type="number" id="weight" name="weight" placeholder="Weight in kg" min="10" max="500">
+                                    <div class="error-message" id="weightError"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateOfBirth">
+                                    <i class="fas fa-calendar"></i>
+                                    Date of Birth
+                                </label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                                <div class="error-message" id="dateOfBirthError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gender">
+                                    <i class="fas fa-venus-mars"></i>
+                                    Gender
+                                </label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                                <div class="error-message" id="genderError"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Blood group, Known Allergies, emergency contact -->
+                        <div class="form-step" id="step3">
+                            <div class="form-group">
+                                <label for="bloodType">
+                                    <i class="fas fa-tint"></i>
+                                    Blood Group
+                                </label>
+                                <select id="bloodType" name="bloodType">
+                                    <option value="">Select Blood Group (Optional)</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                                <div class="error-message" id="bloodTypeError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="allergies">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Known Allergies
+                                </label>
+                                <textarea id="allergies" name="allergies" placeholder="List any known allergies (optional)" rows="3"></textarea>
+                                <div class="error-message" id="allergiesError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emergencyContact">
+                                    <i class="fas fa-phone-alt"></i>
+                                    Emergency Contact
+                                </label>
+                                <input type="tel" id="emergencyContact" name="emergencyContact" placeholder="Emergency contact number" required>
+                                <div class="error-message" id="emergencyContactError"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Password, confirm password, security question and answer -->
+                        <div class="form-step" id="step4">
+                            <div class="form-group">
+                                <label for="password">
+                                    <i class="fas fa-lock"></i>
+                                    Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                                    <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                        <i class="fas fa-eye" id="passwordToggleIcon"></i>
+                                    </button>
+                                </div>
+                                <div class="password-requirements">
+                                    <div class="requirement" id="lengthReq">
+                                        <i class="fas fa-times"></i>
+                                        <span>At least 8 characters</span>
+                                    </div>
+                                    <div class="requirement" id="uppercaseReq">
+                                        <i class="fas fa-times"></i>
+                                        <span>One uppercase letter</span>
+                                    </div>
+                                    <div class="requirement" id="lowercaseReq">
+                                        <i class="fas fa-times"></i>
+                                        <span>One lowercase letter</span>
+                                    </div>
+                                    <div class="requirement" id="numberReq">
+                                        <i class="fas fa-times"></i>
+                                        <span>One number</span>
+                                    </div>
+                                </div>
+                                <div class="error-message" id="passwordError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">
+                                    <i class="fas fa-lock"></i>
+                                    Confirm Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                                    <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                        <i class="fas fa-eye" id="confirmPasswordToggleIcon"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="confirmPasswordError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="securityQuestion">
+                                    <i class="fas fa-question-circle"></i>
+                                    Security Question
+                                </label>
+                                <select id="securityQuestion" name="securityQuestion" required>
+                                    <option value="">Choose a security question</option>
+                                    <option value="pet">What was the name of your first pet?</option>
+                                    <option value="school">What was the name of your elementary school?</option>
+                                    <option value="city">In what city were you born?</option>
+                                    <option value="mother">What is your mother's maiden name?</option>
+                                    <option value="car">What was your first car?</option>
+                                </select>
+                                <div class="error-message" id="securityQuestionError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="securityAnswer">
+                                    <i class="fas fa-key"></i>
+                                    Security Answer
+                                </label>
+                                <input type="text" id="securityAnswer" name="securityAnswer" placeholder="Enter your answer" required>
+                                <div class="error-message" id="securityAnswerError"></div>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                                    <!-- <span class="checkmark"></span> --> <!-- Consider if custom checkmark is needed with new CSS -->
+                                    <span class="checkbox-text">
+                                        I agree to the <a href="#" target="_blank">Terms of Service</a> and 
+                                        <a href="#" target="_blank">Privacy Policy</a>
+                                    </span>
+                                </label>
+                                <div class="error-message" id="agreeTermsError"></div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons (remain inside form for submission) -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary" id="prevBtn" onclick="previousStep()">
+                                <i class="fas fa-arrow-left"></i>
+                                Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">
+                                Next
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Login Link -->
+                <div class="login-link">
+                    <p>Already have an account? <a href="landing.html">Sign In</a></p>
+                </div>
+            </div> <!-- End of card-form-section -->
+        </div> <!-- End of registration-card -->
+    </div> <!-- End of registration-container -->
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Creating your account...</p>
+        </div>
+    </div>
+
+    <!-- Ensure this path is correct for your JS file -->
+    <script src="scripts/new_user_scripts.js"></script>
+    <script>
+        // Function to handle back button click
+        function goBack() {
+            // Accessing global registrationInProgress from new_user_scripts.js
+            if (typeof registrationInProgress !== 'undefined' && registrationInProgress) {
+                showToast('Please wait for registration to complete', 'info');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to go back? Your progress will be saved.')) {
+                if (typeof saveFormData === 'function') saveFormData(); // Save before leaving
+                window.history.back();
+            }
+        }
+
+        // Function to handle logo click (calls function in new_user_scripts.js)
+        // function logoClicked() { // This function is now primarily in new_user_scripts.js
+        //     // alert("Welcome to MediMate! Your health companion.");
+        // }
+
+        // Function to toggle password visibility (calls function in new_user_scripts.js)
+        // function togglePassword(id) { // This function is now primarily in new_user_scripts.js
+        //     // ...
+        // }
+    </script>
+</body>
+</html>
